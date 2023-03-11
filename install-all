@@ -1,0 +1,15 @@
+#:/usr/bin/bash
+
+# this script will install all the makemake templates in this repo
+# it assumes that you already have makemake installed in path
+# you must have the NEW MAKEMAKE
+
+type makemake &>/dev/null
+EC=$?
+if [[ $EC != 0 ]] ; then
+    echo "Failure: makemake is not installed"
+    exit 1
+fi
+
+makemake -cf mmt makemake/mmt
+makemake -cf vscm C/vscm
