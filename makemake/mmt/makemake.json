@@ -1,0 +1,19 @@
+{
+    "$schema": "https://raw.githubusercontent.com/BonnyAD9/makemake-rs/master/useful_stuff/json-schema/makemake-schema.json",
+    "files": {
+        "makemake.json": "Ignore",
+        "README.md": "Ignore",
+        "config.json": {
+            "action": "Make",
+            "name": "makemake.json"
+        },
+        "RM.md": {
+            "action": "Make",
+            "name": "${rm ? 'README.md' : }"
+        },
+        "PRM.md": {
+            "name": "${prm ? 'RM.md' : }"
+        }
+    },
+    "vars": {}
+}
