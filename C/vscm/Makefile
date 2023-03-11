@@ -1,5 +1,5 @@
 CC:=${cc}
-TARGET:=${name ? name : mname ? mname : 'main'}${ext ? ext : _WINDOWS ? .exe : }
+TARGET:=${name ? name : mname ? mname : 'main'}${ext ? ext : _WINDOWS ? '.exe' : }
 CFLAGS:=${dflags}${aflags ? ' ' aflags : }${adflags ? ' ' adflags : }
 RFLAGS:=${rflags}${aflags ? ' ' aflags : }${arflags ? ' ' arflags : }
 CFILES:=${mname ? mname : 'main'}.c
