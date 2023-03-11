@@ -24,7 +24,7 @@ obj/%.o: src/%.c
 	$(CC) $(FLAGS) -c -o $@ $<
 
 install:
-	sudo cp $(TARGET) /bin/target
+	sudo cp -i $(TARGET) /bin/target
 
 clean:
 	rm obj/debug/*.o || true
