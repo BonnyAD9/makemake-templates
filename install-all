@@ -11,5 +11,32 @@ if [[ $EC != 0 ]] ; then
     exit 1
 fi
 
-makemake -cf mmt makemake/mmt
-makemake -cf vscm C/vscm
+PRMPT=${1:-no}
+
+case "$PRMPT" in
+    -h)
+        echo "Welcome in the install-all script for makemake templates
+
+Usage:
+  install-all -h
+    shows this help
+
+  install-all [yes | no | ask]
+    sets the default beahvior in case that any of the templates are already
+    installed. The default value is 'no'."
+        exit 0
+        ;;
+    yes|no|ask) ;;
+    *)
+        echo "Failure: invalid option $PRMPT"
+        exit 1
+        ;;
+esac
+
+if [ ${2:+x} ] ; then
+    echo "Failure: too many arguments"
+    exit 1
+fi
+
+makemake -p $PRMPT -cf mmt makemake/mmt
+makemake -p $PRMPT -cf vscm C/vscm
