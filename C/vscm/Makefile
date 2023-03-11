@@ -12,12 +12,12 @@ debug: $(CFILES)
 
 release: $(CFILES)
 	$(CC) $(RFLAGS) -o $(TARGET) $(CFILES)
-
+${_WINDOWS ? : '
 install:
 	sudo cp -i $(TARGET) /bin/$(TARGET)
 
 uninstall:
 	sudo rm -i /bin/$(TARGET)
-
+'}
 clean:
 	${_WINDOWS ? 'del' : 'rm'} $(TARGET)
