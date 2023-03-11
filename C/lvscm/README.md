@@ -1,1 +1,2 @@
-# ${name ? name : mname ? mname : }
+# lvscm
+Template for multifile C projects.

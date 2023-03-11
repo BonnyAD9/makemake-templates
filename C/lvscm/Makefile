@@ -2,13 +2,13 @@ CC:=${cc}
 TARGET:=${name ? name : mname ? mname : 'main'}${ext ? ext : _WINDOWS ? '.exe' : }
 CFLAGS:=${dflags}${aflags ? ' ' aflags : }${adflags ? ' ' adflags : }
 RFLAGS:=${rflags}${aflags ? ' ' aflags : }${arflags ? ' ' arflags : }
-FLAGS:=$(CFLAGS)
+FLAGS?=$(CFLAGS)
 
 SRC:=$(wildcard src/*.c)
 OBJ:=$(patsubst src/%.c, obj/%.o, $(SRC))
 
 # call the get-deps script that creates dependency files
-DISCARD:=$(shell bash get-deps)
+DISCARD?=$(shell bash get-deps)
 
 -include $(wildcard deps/*.d)
 
@@ -18,7 +18,7 @@ build: $(OBJ)
 	$(CC) $(FLAGS) $^ -o $(TARGET)
 
 release:
-	make build 'FLAGS=$(CFLAGS)'
+	make build 'FLAGS=$(CFLAGS)' DISCARD=yes
 
 obj/%.o: src/%.c
 	$(CC) $(FLAGS) -c -o $@ $<
