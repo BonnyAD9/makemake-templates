@@ -1,0 +1,27 @@
+{
+    "$schema": "https://raw.githubusercontent.com/BonnyAD9/makemake-rs/master/useful_stuff/json-schema/makemake-schema.json",
+    "files": {
+        "makemake.json": "Ignore",
+        "README.md": "Ignore",
+        "RM.md": {
+            "action": "Make",
+            "name": "${rm ? 'README.md' : }"
+        },
+        "src/main.c": {
+            "action": "Make",
+            "name": "${mname ? mname : 'main'}"
+        },
+        "deps/_": "Ignore",
+        "obj/debug/_": "Ignore",
+        "obj/release/_": "Ignore",
+        "gitignore_file": {
+            "name": ".gitignore"
+        },
+        "Makefile": "Make"
+    },
+    "vars": {
+        "cc": "cc",
+        "dflags": "-g -Wall -std=c17 -fsanitize=address",
+        "rflags": "-std=c17 -DNDEBUG -O3"
+    }
+}
