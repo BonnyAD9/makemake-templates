@@ -18,4 +18,4 @@ Template for large C projects.
 
 ## Support
 - this extension requires that the compiler in the variable `cc` can generate dependencies (e.g.: `gcc`, `clang`).
-- this extension can be used only on posix complient systems because it uses sed and rm and it expects that wildcard (`*`), pipes (`|`) and the `&&` operator will work in the shell
+- this extension can be used only on posix complient systems because it uses sed, rm and true and it expects that wildcard (`*`), pipes (`|`) and the `||` operator will work in the shell
