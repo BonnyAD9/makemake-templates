@@ -40,3 +40,4 @@ fi
 
 makemake -p $PRMPT -cf mmt makemake/mmt
 makemake -p $PRMPT -cf vscm C/vscm
+makemake -p $PRMPT -cf vscm C/lvscm
