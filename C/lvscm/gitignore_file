@@ -1,2 +1,3 @@
 dep.d
 ${name ? name : mname ? mname : 'main'}${ext ? ext : _WINDOWS ? '.exe' : }
+obj/

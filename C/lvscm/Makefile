@@ -7,9 +7,6 @@ SRC:=$(wildcard src/*.c)
 DOBJ:=$(patsubst src/%.c, obj/debug/%.o, $(SRC))
 ROBJ:=$(patsubst src/%.c, obj/release/%.o, $(SRC))
 
-# create dependencies
-DISCARD?=$(shell clang -MM $(SRC) > dep.d)
-
 -include dep.d
 
 .DEFAULT_GOAL:=debug
