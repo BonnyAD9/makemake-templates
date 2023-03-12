@@ -9,15 +9,25 @@
         },
         "src/main.c": {
             "action": "Make",
-            "name": "${mname ? mname : 'main'}"
+            "name": "${mname ? mname : 'main'}.c"
         },
         "deps/_": "Ignore",
         "obj/debug/_": "Ignore",
         "obj/release/_": "Ignore",
         "gitignore_file": {
+            "action": "Make",
             "name": ".gitignore"
         },
-        "Makefile": "Make"
+        "Makefile": "Make",
+        "src/lib.h": {
+            "action": "Make",
+            "name": "${lib ? lib '.h' : }"
+        },
+        "src/lib.c": {
+            "action": "Make",
+            "name": "${lib ? lib '.c' : }"
+        },
+        ".vscode/launch.json": "Make"
     },
     "vars": {
         "cc": "cc",
