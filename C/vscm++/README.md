@@ -1,8 +1,8 @@
 # vscm
-makemake template for single file C projects
+makemake template for single file C++ projects
 
 ## Variables in this template
-- `cc`: the compiler to use, default value: `cc`
+- `cxx`: the compiler to use, default value: `clang++`
 - `dflags`: flags to use when debugging, default value: `-g -Wall -std=c17 -fsanitize=address`
 - `rflags`: flags to use on release builds, default value: `-std=c17 -DNDEBUG -O3`
 - `aflags`: additional flags for both debug and release
