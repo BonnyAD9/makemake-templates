@@ -1,4 +1,4 @@
-#:/usr/bin/bash
+#!/usr/bin/bash
 
 # this script will install all the makemake templates in this repo
 # it assumes that you already have makemake installed in path
