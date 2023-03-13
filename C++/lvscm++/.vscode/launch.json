@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug",
+            "program": "${'${workspaceFolder}'}/${name ? name : mname ? mname : 'main'}${ext ? ext : _WINDOWS ? '.exe' : }",
+            "args": [],
+            "cwd": "${'${workspaceFolder}'}",
+            "preLaunchTask": "Makefile",
+            "env": {
+                "ASAN_OPTIONS": "detect_leaks=0"
+            }
+        }
+    ]
+}

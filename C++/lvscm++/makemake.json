@@ -1,0 +1,37 @@
+{
+    "$schema": "https://raw.githubusercontent.com/BonnyAD9/makemake-rs/master/useful_stuff/json-schema/makemake-schema.json",
+    "files": {
+        "makemake.json": "Ignore",
+        "README.md": "Ignore",
+        "RM.md": {
+            "action": "Make",
+            "name": "${rm ? 'README.md' : }"
+        },
+        "src/main.cpp": {
+            "action": "Make",
+            "name": "${mname ? mname : 'main'}.cpp"
+        },
+        "deps/_": "Ignore",
+        "obj/debug/_": "Ignore",
+        "obj/release/_": "Ignore",
+        "gitignore_file": {
+            "action": "Make",
+            "name": ".gitignore"
+        },
+        "Makefile": "Make",
+        "src/lib.hpp": {
+            "action": "Make",
+            "name": "${lib ? lib '.hpp' : }"
+        },
+        "src/lib.cpp": {
+            "action": "Make",
+            "name": "${lib ? lib '.cpp' : }"
+        },
+        ".vscode/launch.json": "Make"
+    },
+    "vars": {
+        "cxx": "clang++",
+        "dflags": "-g -Wall -std=c++20 -fsanitize=address",
+        "rflags": "-std=c++20 -DNDEBUG -O3"
+    }
+}
