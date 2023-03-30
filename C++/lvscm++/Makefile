@@ -21,12 +21,12 @@ ROBJ:=$(patsubst src/%.cpp, obj/release/%.o, $(SRC))
 
 debug:
 	mkdir -p obj/debug
-	clang $(CFLAGS) -MM $(SRC) | sed -r 's/^.*$$/obj\/debug\/\0/' > dep.d
+	clang $(CFLAGS) -MM $(SRC) | sed -r 's/^.*:.*$$/obj\/debug\/\0/' > dep.d
 	make deb
 
 release:
 	mkdir -p obj/release
-	clang $(CFLAGS) -MM $(SRC) | sed -r 's/^.*$$/obj\/release\/\0/' > dep.d
+	clang $(CFLAGS) -MM $(SRC) | sed -r 's/^.*:.*$$/obj\/release\/\0/' > dep.d
 	make rel
 
 deb: $(DOBJ)
