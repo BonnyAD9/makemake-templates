@@ -15,7 +15,6 @@
         ".vscode/launch.json": "Make"
     },
     "vars": {
-        "cc": "cc",
         "dflags": "-g -Wall -std=c17 -fsanitize=address",
         "rflags": "-std=c17 -DNDEBUG -O3"
     }
