@@ -5,6 +5,7 @@ ${ldflags ? 'LDFLAGS:=' ldflags '\n' : }CFILES:=${mname ? mname : 'main'}.c
 
 .PHONY: clean install
 
+
 debug: $(CFILES)
 	$(CC) $(CFLAGS) -o $(TARGET) $(CFILES) $(LDFLAGS)
 
@@ -18,4 +19,4 @@ uninstall:
 	sudo rm -i /bin/$(TARGET)
 '}
 clean:
-	${_WINDOWS ? 'del' : 'rm'} $(TARGET)
+	-${_WINDOWS ? 'del' : 'rm'} $(TARGET)
