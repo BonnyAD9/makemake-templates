@@ -13,10 +13,10 @@ release: $(CFILES)
 	$(CXX) $(RFLAGS) -o $(TARGET) $(CFILES) $(LDFLAGS)
 ${_WINDOWS ? : '
 install:
-	sudo cp -i $(TARGET) /bin/$(TARGET)
+	sudo cp -i $(TARGET) /usr/bin/$(TARGET)
 
 uninstall:
-	sudo rm -i /bin/$(TARGET)
+	sudo rm -i /usr/bin/$(TARGET)
 '}
 clean:
 	-${_WINDOWS ? 'del' : 'rm'} $(TARGET)

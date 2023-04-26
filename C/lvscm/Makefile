@@ -36,7 +36,10 @@ obj/debug/%.o: src/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 install:
-	sudo cp -i $(TARGET) /bin/target
+	sudo cp -i $(TARGET) /usr/bin/target
+
+uninstall:
+	sudo rm -i /usr/bin/$(TARGET)
 
 clean:
 	-rm obj/debug/*.o obj/release/*.o $(TARGET) dep.d
