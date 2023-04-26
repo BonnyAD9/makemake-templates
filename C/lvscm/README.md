@@ -2,7 +2,7 @@
 Template for large C projects.
 
 ## Variables
-- `cc`: the compiler to use, default value: `cc`
+- `cc`: the compiler to use
 - `dflags`: flags to use when debugging, default value: `-g -Wall -std=c17 -fsanitize=address`
 - `rflags`: flags to use on release builds, default value: `-std=c17 -DNDEBUG -O3`
 - `aflags`: additional flags for both debug and release
@@ -15,6 +15,7 @@ Template for large C projects.
 - `hw`: if defined hello world print is added to main
 - `args`: if defined, main will take arguments
 - `lib`: also creates a library with the given name. If `hw` is also specified the hello world program will be in the in separate file and called from main
+- `ldflags`: the linker flags to use
 
 ## Support
 - this extension requires that the compiler in the variable `cc` can generate dependencies (e.g.: `gcc`, `clang`).

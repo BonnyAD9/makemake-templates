@@ -12,10 +12,14 @@
             "name": "${mname ? mname : 'main'}.cpp"
         },
         "Makefile": "Make",
-        ".vscode/launch.json": "Make"
+        ".vscode/launch.json": "Make",
+        "gitignore_file": {
+            "name": ".gitignore",
+            "action": "Make"
+        }
     },
     "vars": {
-        "cxx": "clang++",
+        "cxx": "c++",
         "dflags": "-g -Wall -std=c++20 -fsanitize=address",
         "rflags": "-std=c++20 -DNDEBUG -O3"
     }
