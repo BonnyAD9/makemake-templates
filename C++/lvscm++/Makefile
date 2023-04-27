@@ -37,7 +37,7 @@ obj/debug/%.o: src/%.cpp
 	$(CXX) $(CFLAGS) -c -o $@ $<
 
 install:
-	sudo cp -i $(TARGET) /usr/bin/target
+	sudo cp -i $(TARGET) /usr/bin/$(TARGET)
 
 uninstall:
 	sudo rm -i /usr/bin/$(TARGET)
