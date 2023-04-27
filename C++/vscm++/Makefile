@@ -1,23 +1,22 @@
-CC:=${cxx}
+CXX:=${cxx}
 TARGET:=${name ? name : mname ? mname : 'main'}${ext ? ext : _WINDOWS ? '.exe' : }
 CFLAGS:=${dflags}${aflags ? ' ' aflags : }${adflags ? ' ' adflags : }
 RFLAGS:=${rflags}${aflags ? ' ' aflags : }${arflags ? ' ' arflags : }
-CFILES:=${mname ? mname : 'main'}.cpp
+${ldflags ? 'LDFLAGS:=' ldflags '\n' : }CFILES:=${mname ? mname : 'main'}.cpp
 
-.PHONY: clean
-.PHONY: install
+.PHONY: clean install
 
 debug: $(CFILES)
-	$(CC) $(CFLAGS) -o $(TARGET) $(CFILES)
+	$(CXX) $(CFLAGS) -o $(TARGET) $(CFILES) $(LDFLAGS)
 
 release: $(CFILES)
-	$(CC) $(RFLAGS) -o $(TARGET) $(CFILES)
+	$(CXX) $(RFLAGS) -o $(TARGET) $(CFILES) $(LDFLAGS)
 ${_WINDOWS ? : '
 install:
-	sudo cp -i $(TARGET) /bin/$(TARGET)
+	sudo cp -i $(TARGET) /usr/bin/$(TARGET)
 
 uninstall:
-	sudo rm -i /bin/$(TARGET)
+	sudo rm -i /usr/bin/$(TARGET)
 '}
 clean:
-	${_WINDOWS ? 'del' : 'rm'} $(TARGET)
+	-${_WINDOWS ? 'del' : 'rm'} $(TARGET)

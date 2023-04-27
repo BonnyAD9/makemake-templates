@@ -12,10 +12,13 @@
             "name": "${mname ? mname : 'main'}.c"
         },
         "Makefile": "Make",
-        ".vscode/launch.json": "Make"
+        ".vscode/launch.json": "Make",
+        "gitignore_file": {
+            "name": ".gitignore",
+            "action": "Make"
+        }
     },
     "vars": {
-        "cc": "cc",
         "dflags": "-g -Wall -std=c17 -fsanitize=address",
         "rflags": "-std=c17 -DNDEBUG -O3"
     }

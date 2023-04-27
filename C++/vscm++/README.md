@@ -2,7 +2,7 @@
 makemake template for single file C++ projects
 
 ## Variables in this template
-- `cxx`: the compiler to use, default value: `clang++`
+- `cxx`: the compiler to use, default value: `c++`
 - `dflags`: flags to use when debugging, default value: `-g -Wall -std=c17 -fsanitize=address`
 - `rflags`: flags to use on release builds, default value: `-std=c17 -DNDEBUG -O3`
 - `aflags`: additional flags for both debug and release
@@ -14,3 +14,4 @@ makemake template for single file C++ projects
 - `ext`: extension of the binary file, default value: `.exe` on windows, otherwise empty
 - `hw`: if defined hello world print is added to main
 - `args`: if defined, main will take arguments
+- `ldflags`: flags to use when linking

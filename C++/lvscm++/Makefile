@@ -1,8 +1,8 @@
-CC:=${cxx}
+CXX:=${cxx}
 TARGET:=${name ? name : mname ? mname : 'main'}${ext ? ext : _WINDOWS ? '.exe' : }
 CFLAGS:=${dflags}${aflags ? ' ' aflags : }${adflags ? ' ' adflags : }
 RFLAGS:=${rflags}${aflags ? ' ' aflags : }${arflags ? ' ' arflags : }
-
+${ldflags ? 'LDFLAGS:=' ldflags '\n' : }
 SRC:=$(wildcard src/*.cpp)
 DOBJ:=$(patsubst src/%.cpp, obj/debug/%.o, $(SRC))
 ROBJ:=$(patsubst src/%.cpp, obj/release/%.o, $(SRC))
@@ -11,40 +11,36 @@ ROBJ:=$(patsubst src/%.cpp, obj/release/%.o, $(SRC))
 
 .DEFAULT_GOAL:=debug
 
-.PHONY: debug
-.PHONY: release
-.PHONY: install
-.PHONY: clean
-.PHONY: rel
-.PHONY: deb
+.PHONY: debug release install clean rel deb
 
 
 debug:
 	mkdir -p obj/debug
 	clang -MM $(SRC) | sed -r 's/^.*:.*$$/obj\/debug\/\0/' > dep.d
-	make deb
+	$(MAKE) deb
 
 release:
 	mkdir -p obj/release
 	clang -MM $(SRC) | sed -r 's/^.*:.*$$/obj\/release\/\0/' > dep.d
-	make rel
+	$(MAKE) rel
 
 deb: $(DOBJ)
-	$(CC) $(CFLAGS) $^ -o $(TARGET)
+	$(CXX) $(CFLAGS) $^ -o $(TARGET) $(LDFLAGS)
 
 rel: $(ROBJ)
-	$(CC) $(RFLAGS) $^ -o $(TARGET)
+	$(CXX) $(RFLAGS) $^ -o $(TARGET) $(LDFLAGS)
 
 obj/release/%.o: src/%.cpp
-	$(CC) $(RFLAGS) -c -o $@ $<
+	$(CXX) $(RFLAGS) -c -o $@ $<
 
 obj/debug/%.o: src/%.cpp
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CXX) $(CFLAGS) -c -o $@ $<
 
 install:
-	sudo cp -i $(TARGET) /bin/target
+	sudo cp -i $(TARGET) /usr/bin/target
+
+uninstall:
+	sudo rm -i /usr/bin/$(TARGET)
 
 clean:
-	rm obj/debug/*.o || true
-	rm obj/release/*.o || true
-	rm $(TARGET) || true
+	-rm obj/debug/*.o obj/release/*.o $(TARGET) dep.d
