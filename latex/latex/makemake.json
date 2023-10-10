@@ -1,0 +1,13 @@
+{
+    "$schema": "https://raw.githubusercontent.com/BonnyAD9/makemake-rs/master/useful_stuff/json-schema/makemake-schema.json",
+    "files": {
+        "makemake.json": "Ignore",
+        "README.md": "Ignore",
+        "document.tex": {
+            "action": "Make",
+            "name": "${name ? name : 'document'}.tex"
+        },
+        "Makefile": "Make"
+    },
+    "vars": {}
+}
