@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/BonnyAD9/makemake-rs/master/useful_stuff/json-schema/makemake-schema.json",
+    "preCommand": "cargo init ${lib ? '--lib' : ''}",
+    "files": {
+        "makemake.json": "Ignore",
+        "README.md": "Ignore",
+        ".rustfmt.toml": "Make"
+    },
+    "vars": {
+        "line": "79"
+    }
+}
