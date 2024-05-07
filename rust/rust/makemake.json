@@ -1,12 +1,22 @@
 {
     "$schema": "https://raw.githubusercontent.com/BonnyAD9/makemake-rs/master/useful_stuff/json-schema/makemake-schema.json",
     "preCommand": "cargo init ${lib ? '--lib' : ''}",
+    "expandVariables": true,
     "files": {
         "makemake.json": "Ignore",
         "README.md": "Ignore",
-        ".rustfmt.toml": "Make"
+        ".rustfmt.toml": "Make",
+        "RM.md": {
+            "name": "${rm ? 'README.md' : }",
+            "action": "Make"
+        },
+        "up.sh": {
+            "name": "${lib ? : (pname ?? _PDIR) 'up.sh'}",
+            "action": "Make"
+        }
     },
     "vars": {
-        "line": "79"
+        "line": "79",
+        "pname": "${pname ?? _PDIR}"
     }
 }
