@@ -1,4 +1,4 @@
-# C++ CMake template
+# C CMake template
 Creates recursive cmake project with separate debug and release build files.
 
 Adds makefile with these commands:
