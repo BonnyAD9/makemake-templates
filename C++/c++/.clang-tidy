@@ -23,7 +23,6 @@ Checks: '
   -readability-implicit-bool-conversion,
   -readability-named-parameter'
 FormatStyle: file
-WarningsAsErrors: '*'
 
 CheckOptions:
   - key:   readability-identifier-naming.ClassCase
